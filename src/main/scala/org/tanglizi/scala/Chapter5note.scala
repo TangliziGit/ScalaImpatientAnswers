@@ -2,7 +2,7 @@ package org.tanglizi.scala
 
 import scala.beans.BeanProperty
 
-object Chapter5 extends App{
+object Chapter5note extends App{
   val person: Person = new Person
   val outer: Outer = new Outer("scala outer class")
 }
