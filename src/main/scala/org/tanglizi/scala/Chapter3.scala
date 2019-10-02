@@ -1,8 +1,12 @@
+package org.tanglizi.scala
+
 import scala.util.Random
 import scala.collection.mutable._
 import java.util.TimeZone
 
-object Main{
+import scala.collection.mutable
+
+object Chapter3{
   def main(args: Array[String]): Unit = {}
 
   // 1
@@ -16,12 +20,12 @@ object Main{
     if (xs.length<=1) xs
     else Array(xs(1), xs(0)) ++ arraySwap(xs.drop(2))
   }
-  val array=Array[Int](1, -2, -3, 4, 5)
+  val array: Array[Int] =Array[Int](1, -2, -3, 4, 5)
   println(arraySwap(array).toList)
 
   // 3
-  def arraySwap2(xs: Array[Int]) = {
-    for (i <- 0 until xs.length) yield 
+  def arraySwap2(xs: Array[Int]): scala.IndexedSeq[Int] = {
+    for (i <- xs.indices) yield
       if (i%2==1) xs(i-1)
       else if (i+1 < xs.length) xs(i+1)
       else xs(i)
@@ -29,7 +33,7 @@ object Main{
   println(arraySwap2(array).toList)
 
   // 4
-  def rearrange(xs: Array[Int]) = {
+  def rearrange(xs: Array[Int]): Array[Int] = {
     (for (x <- xs; if x>0) yield x) ++ (for (x <- xs; if x<=0) yield x)
   }
   println(rearrange(array).toList)
@@ -45,7 +49,7 @@ object Main{
   println(Array(1, 2, 2, 1, 2).distinct.toList)
 
   // 8
-  def rearrange2(xs: Buffer[Int]) = {
+  def rearrange2(xs: mutable.Buffer[Int]): Array[Int] = {
     val index = (for (i <- 0 until xs.length; if xs(i)<0) yield i).reverse.dropRight(1)
     for (i <- index) xs.remove(i)
     xs.toArray

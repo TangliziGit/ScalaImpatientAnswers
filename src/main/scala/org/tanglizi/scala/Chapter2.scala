@@ -1,6 +1,6 @@
-object Main{
-  def main(args: Array[String]): Unit = {}
+package org.tanglizi.scala
 
+object Chapter2 extends App{
   // 9
   def product(str: String):BigInt = {
     str match {
